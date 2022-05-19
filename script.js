@@ -32,14 +32,25 @@ function randomSelect() {
   const times = 30
 
   const interval = setInterval(() => {
-      const randomTag = pickRandomTag()
+    const randomTag = pickRandomTag()
 
 if (randomTag !== undefined) {
-      highlightTag(randomTag)
+    highlightTag(randomTag)
 
-      setTimeout(() => {
-          unHighlightTag(randomTag)
-      }, 100)
+    setTimeout(() => {
+       unHighlightTag(randomTag)
+    }, 100)
 }
   }, 100);
+
+  setTimeout(() => {
+    clearInterval(interval)
+
+    setTimeout(() => {
+      const randomTag = pickRandomTag()
+
+      highlightTag(randomTag)
+    }, 100)
+
+  }, times * 100)
 }
